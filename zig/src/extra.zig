@@ -79,7 +79,7 @@ pub fn decodeZbor(allocator: std.mem.Allocator, type_id: []const u8, bytes: []co
     return error.UnknownTypeId;
 }
 
-pub fn encodeLalinsky(fx: data.Fixture, out: *buf_mod.Buf) !void {
+pub fn encodeMsgpackLalinsky(fx: data.Fixture, out: *buf_mod.Buf) !void {
     var aw: std.Io.Writer.Allocating = .init(out.allocator);
     defer aw.deinit();
     switch (fx) {
@@ -88,7 +88,7 @@ pub fn encodeLalinsky(fx: data.Fixture, out: *buf_mod.Buf) !void {
     try out.appendSlice(aw.written());
 }
 
-pub fn decodeLalinsky(allocator: std.mem.Allocator, type_id: []const u8, bytes: []const u8) !data.Fixture {
+pub fn decodeMsgpackLalinsky(allocator: std.mem.Allocator, type_id: []const u8, bytes: []const u8) !data.Fixture {
     if (std.mem.eql(u8, type_id, "message")) {
         return .{ .message = try msgpack_l.decodeFromSliceLeaky(data.Message, allocator, bytes) };
     }

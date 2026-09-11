@@ -273,10 +273,10 @@ fn extraZborDe(_: *anyopaque, allocator: std.mem.Allocator, type_id: []const u8,
     return extra.decodeZbor(allocator, type_id, bytes);
 }
 fn extraLalinskySer(_: *anyopaque, fx: data.Fixture, out: *buf_mod.Buf) !void {
-    try extra.encodeLalinsky(fx, out);
+    try extra.encodeMsgpackLalinsky(fx, out);
 }
 fn extraLalinskyDe(_: *anyopaque, allocator: std.mem.Allocator, type_id: []const u8, bytes: []const u8) !data.Fixture {
-    return extra.decodeLalinsky(allocator, type_id, bytes);
+    return extra.decodeMsgpackLalinsky(allocator, type_id, bytes);
 }
 fn extraJsonLalinskySer(_: *anyopaque, fx: data.Fixture, out: *buf_mod.Buf) !void {
     try extra.encodeJsonLalinsky(fx, out);
