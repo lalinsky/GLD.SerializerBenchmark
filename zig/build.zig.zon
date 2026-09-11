@@ -32,6 +32,10 @@
             .url = "https://github.com/nDimensional/zig-flatbuffers/archive/refs/tags/v0.2.1.tar.gz",
             .hash = "flatbuffers-0.2.1-Ntd6Dj4tAgAaAnjU4WN1nBvxfeZ0yHDW1JNCNr1i1EKB",
         },
+        .json_lalinsky = .{
+            .url = "https://github.com/lalinsky/json.zig/archive/refs/heads/main.tar.gz",
+            .hash = "json-0.1.0-XOh3Khe7AQBw_s0zhCmodcqmxAuX1DF-jhmM4Va7Go_1",
+        },
     },
     .paths = .{
         "build.zig",
